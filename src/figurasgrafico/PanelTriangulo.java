@@ -25,12 +25,16 @@ public class PanelTriangulo extends JPanel {
         super.paintComponent(g);
         
         Polygon polygon = new Polygon();
-        polygon.addPoint(0,0);
-        polygon.addPoint(0,50);
-        polygon.addPoint(50,50);
+        polygon.addPoint(230,150);
+        polygon.addPoint(230,200);
+        polygon.addPoint(280,200);
         
         g.setColor(Color.BLUE);
         g.drawPolygon(polygon);
+        g.fillPolygon(polygon);
+        g.setColor(Color.BLACK);
+        g.drawLine(230, 0, 230, 300);
+        g.drawLine(0, 150, 467, 150);
     }
     
 }
