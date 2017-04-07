@@ -21,7 +21,7 @@ public class VentanaPrincipal extends JFrame {
     
     private JPanel panelBotones;
     
-    private JPanel panelTriangulo;
+    private PanelTriangulo panelTriangulo;
     
     public VentanaPrincipal(){
         setSize(600, 600);
@@ -47,7 +47,7 @@ public class VentanaPrincipal extends JFrame {
 
     }
 
-    public JPanel getPanelTriangulo() {
+    public PanelTriangulo getPanelTriangulo() {
         return panelTriangulo;
     }
     

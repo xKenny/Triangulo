@@ -82,6 +82,7 @@ public class PanelBotones extends JPanel implements ActionListener {
             paleta.setSize(300,300);
             this.ventana.getPanelTriangulo().setBackground(paleta.showDialog(null, "Seleccione un Color", Color.green));
             paleta.setVisible(true);
+            System.out.print(paleta.showDialog(null, "Seleccione un Color", Color.green));
         }
         else if (BTN_COLOR_LINEA.equals(e.getActionCommand())){
             JColorChooser paleta = new JColorChooser();
@@ -110,24 +111,19 @@ public class PanelBotones extends JPanel implements ActionListener {
             triangulo = new Triangulo(Double.parseDouble(campo1.getText()),Double.parseDouble(campo2.getText()),Double.parseDouble(campo3.getText()),Double.parseDouble(campo4.getText()),Double.parseDouble(campo5.getText()),Double.parseDouble(campo6.getText()));
             this.LArea.setText("AREA:"+ this.triangulo.darArea());
             this.LPerimetro.setText("Perimetro: "+ this.triangulo.darPermietro());
-            x1=Integer.parseInt(campo1.getText());x2=Integer.parseInt(campo2.getText());x3=Integer.parseInt(campo3.getText());y1=Integer.parseInt(campo4.getText());y2=Integer.parseInt(campo5.getText());y3=Integer.parseInt(campo3.getText());
+            x1=Integer.parseInt(campo1.getText());
+            x2=Integer.parseInt(campo2.getText());
+            x3=Integer.parseInt(campo3.getText());
+            y1=Integer.parseInt(campo4.getText());
+            y2=Integer.parseInt(campo5.getText());
+            y3=Integer.parseInt(campo3.getText());
+            this.ventana.getPanelTriangulo().setX1(x1);this.ventana.getPanelTriangulo().setY1(y1);
+            this.ventana.getPanelTriangulo().setX2(x2);this.ventana.getPanelTriangulo().setY2(y2);
+            this.ventana.getPanelTriangulo().setX3(x3);this.ventana.getPanelTriangulo().setY3(y3);
+            this.ventana.repaint();
         }
     }   
-        public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        
-        Polygon polygon = new Polygon();
-        polygon.addPoint(x1+230,y1+150);
-        polygon.addPoint(x2+230,y2+150);
-        polygon.addPoint(x3+230,y3+150);
-        
-        g.setColor(Color.BLUE);
-        g.drawPolygon(polygon);
-        g.fillPolygon(polygon);
-        g.setColor(Color.BLACK);
-        g.drawLine(230, 0, 230, 300);
-        g.drawLine(0, 150, 467, 150);
-    }
+       
     
     
 
