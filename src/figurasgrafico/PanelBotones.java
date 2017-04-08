@@ -25,11 +25,12 @@ import javax.swing.JOptionPane;
 import java.lang.Integer;
 
 /**
- *
+ *clase para el manejo de los botones principales
  * @author Duvan - David
  */
 public class PanelBotones extends JPanel implements ActionListener {
-    
+    /*atributos de la clase*/
+    private Colores vencolorfigura;
     private int x1,x2,x3,y1,y2,y3;
     private JButton btnColorFondo;
     private JButton btnColorLinea;
@@ -45,7 +46,9 @@ public class PanelBotones extends JPanel implements ActionListener {
     private VentanaPrincipal ventana;
     private Triangulo triangulo;
     
+    /*constructor que genera los botones y labels del panel*/
     public PanelBotones(VentanaPrincipal ventana){
+     
         this.ventana = ventana;
         setBackground(Color.WHITE);
         setLayout(new GridLayout(6, 1));
@@ -73,27 +76,31 @@ public class PanelBotones extends JPanel implements ActionListener {
         
          LAltura = new JLabel("Altura: ");
         add(LAltura);
+        
+        vencolorfigura= new Colores();
     }
-
+    /*escuchadores de eventos para cada boton*/
     @Override
     public void actionPerformed(ActionEvent e) {
+        Colores color;
         if(BTN_COLOR_FONDO.equals(e.getActionCommand())){
-            JColorChooser paleta = new JColorChooser();
-            paleta.setSize(300,300);
-            this.ventana.getPanelTriangulo().setBackground(paleta.showDialog(null, "Seleccione un Color", Color.green));
-            paleta.setVisible(true);
-            System.out.print(paleta.showDialog(null, "Seleccione un Color", Color.green));
+           System.out.print("Imprimio boton color fondo");
+                Color col = vencolorfigura.colorfigura();
+                ventana.getPanelTriangulo().colorfondo = col;
+                ventana.getPanelTriangulo().repaint();
+                
         }
         else if (BTN_COLOR_LINEA.equals(e.getActionCommand())){
-            JColorChooser paleta = new JColorChooser();
-            paleta.setSize(300,300);
-            this.ventana.getPanelTriangulo().setBackground(paleta.showDialog(null, "Seleccione un Color", Color.green));
-            paleta.setVisible(true);
+            System.out.print("Imprimio boton color linea");
+                Color co = vencolorfigura.colorlinea();
+                ventana.getPanelTriangulo().color = co;
+                ventana.getPanelTriangulo().repaint();
         }
         else if (BTN_PUNTO.equals(e.getActionCommand())){
             JDialog mensaje = new JDialog(new JFrame(), true);
             mensaje.setLayout(new GridLayout(3,3));
-            mensaje.setSize(300,300);
+            mensaje.setSize(500,300);
+            
             mensaje.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
             JTextField campo1 = new JTextField();
             JTextField campo2 = new JTextField();
@@ -107,6 +114,7 @@ public class PanelBotones extends JPanel implements ActionListener {
             mensaje.add(campo4);
             mensaje.add(campo5);
             mensaje.add(campo6);
+            
             mensaje.setVisible(true);
             triangulo = new Triangulo(Double.parseDouble(campo1.getText()),Double.parseDouble(campo2.getText()),Double.parseDouble(campo3.getText()),Double.parseDouble(campo4.getText()),Double.parseDouble(campo5.getText()),Double.parseDouble(campo6.getText()));
             this.LArea.setText("AREA:"+ this.triangulo.darArea());

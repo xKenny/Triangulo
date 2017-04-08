@@ -6,7 +6,7 @@
 package figurasgrafico;
 
 /**
- *
+ *clase principal
  * @author David - Duvan
  */
 public class FigurasGrafico {

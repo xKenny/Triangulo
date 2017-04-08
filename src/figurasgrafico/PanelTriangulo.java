@@ -6,7 +6,9 @@
 package figurasgrafico;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
 import javax.swing.JPanel;
 
@@ -15,31 +17,43 @@ import javax.swing.JPanel;
  * @author Duvan - David
  */
 public class PanelTriangulo extends JPanel {
+    /*atributos de la clase*/
+    public Color color;
+    public Color colorfondo;
     
     private int x1,x2,x3,y1,y2,y3;
-    private Color color;
-    
+   
+    /*constructor que defines aspectos principales del panel*/
     public PanelTriangulo() {
         
         setBackground(Color.GRAY);
+         Dimension d = getSize();
+        System.out.print(d.getHeight() + " " + d.getWidth());  
 
     }
-    
+    /*metodo para dibujar el triangulo*/
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        Graphics2D grafico = (Graphics2D) g;
+        
         
         Polygon polygon = new Polygon();
         polygon.addPoint(x1+230,150-y1);
         polygon.addPoint(x2+230,150-y2);
         polygon.addPoint(x3+230,150-y3);
-        g.setColor(Color.blue);
-        g.drawPolygon(polygon);
-        g.fillPolygon(polygon);
-        g.setColor(Color.BLACK);
+       
+        
         g.drawLine(230, 0, 230, 300);
         g.drawLine(0, 150, 467, 150);
+        
+        g.setColor(color);
+        g.drawPolygon(polygon);
+        grafico.setColor(colorfondo);
+        grafico.fill(polygon);
+        
     }
-
+    /*metodos getter y setter*/
     public int getX1() {
         return x1;
     }

@@ -10,11 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- *
+ *clase de la ventana principal
  * @author Duvan - David
  */
 public class VentanaPrincipal extends JFrame {
-    
+    /*atributos de la clase*/
     private JPanel panelImagen;
     
     private JPanel panelOpciones;
@@ -22,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
     private JPanel panelBotones;
     
     private PanelTriangulo panelTriangulo;
-    
+    /*constructor que llama los paneles*/
     public VentanaPrincipal(){
         setSize(600, 600);
         setLocationRelativeTo(null);
@@ -46,7 +46,7 @@ public class VentanaPrincipal extends JFrame {
         
 
     }
-
+    /*metodo para obtener el panel triangulo*/
     public PanelTriangulo getPanelTriangulo() {
         return panelTriangulo;
     }

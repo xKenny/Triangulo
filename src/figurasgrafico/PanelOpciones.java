@@ -14,17 +14,17 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- *
+ *clase de panel para los botones inferiores
  * @author Duvan - David
  */
 public class PanelOpciones extends JPanel implements ActionListener {
-    
+    /*atributos de la clase*/
     private JButton btnOpcion1;
     private JButton btnOpcion2;
     
     private static final String OPCION_1 = "OPCION 1";
     private static final String OPCION_2 = "OPCION 2";
-    
+    /*constrictor que inserta los componentes del panel*/
     public PanelOpciones(){
         
         setBackground(Color.WHITE);
@@ -43,7 +43,7 @@ public class PanelOpciones extends JPanel implements ActionListener {
         
     }
 
-
+    /*escuchador de eventos para los botones*/
     @Override
     public void actionPerformed(ActionEvent e) {
         if(OPCION_1.equals(e.getActionCommand())){

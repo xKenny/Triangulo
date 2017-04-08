@@ -13,14 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 /**
- *
+ *clase del panel para el logo principal
  * @author Duvan - David
  */
 public class PanelImagen extends JPanel {
-    
+    /*atributos de la clase*/
     private JLabel etiquetaImagen;
     private JLabel nombres;
-    
+    /*constructor que inserta imagenes y titulos*/
     public PanelImagen(){
         setBackground(Color.WHITE);
         setBorder(new LineBorder (Color.GRAY));
